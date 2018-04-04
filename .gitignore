@@ -1,0 +1,5 @@
+env
+.idea
+*.json
+image_data/*.jpg
+image_data/*.png
