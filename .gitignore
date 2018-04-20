@@ -1,5 +1,7 @@
 env
 .idea
 *.json
-image_data/*.jpg
-image_data/*.png
+image_data/*
+fixed_images/*
+.DS_Store
+*.zip

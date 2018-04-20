@@ -20,13 +20,17 @@ import praw
 ******************************
 '''
 # initialization variables
-IMAGES_TO_PULL = 100  # int, number of images to pull
+IMAGES_TO_PULL = 2000  # int, number of images to pull
 
 REDDIT_PAGE = 'memes'  # str, subreddit to pull from, ex.: 'memes' for r/memes
+# REDDIT_PAGE = 'MemeEconomy'  # str, subreddit to pull from, ex.: 'memes' for r/memes
+# REDDIT_PAGE = 'dankmemes'  # str, subreddit to pull from, ex.: 'memes' for r/memes
+# REDDIT_PAGE = 'ComedyCemetery'  # str, subreddit to pull from, ex.: 'memes' for r/memes
+# REDDIT_PAGE = 'wholesomememes'  # str, subreddit to pull from, ex.: 'memes' for r/memes
 COMMENTS_TO_PULL = 5  # int, amount of comments to get from each post
 SAVE_JSON = True  # bool, save json file?
-FILE_NAME = 'reddit_memes_data_top_month_5_4_2'  # str, output file name
-DOWNLOAD_IMAGES = True  # bool, download images? need to have 'image_data' folder in dir
+FILE_NAME = 'memes'  # str, output file name
+DOWNLOAD_IMAGES = False  # bool, download images? need to have 'image_data' folder in dir
 PULL_FROM = 'top_year'  # str, can be: hot, top_month, top_week, top_day, top_year
 
 logging.basicConfig(
@@ -69,7 +73,10 @@ def get_submissions():
         assert False, 'invalid input option for variable "pull_from" (can be: hot, top_month, top_week, top_day)'
 
 
-def pull_submission(submission):
+def pull_submission(x):
+    i,submission = x
+    if (i%50)==0: 
+        logging.info('Downloaded %d submissions' % i)
     date = datetime.datetime.fromtimestamp(submission.created)
     # get image url to deconstruct later
     url = submission.url
@@ -112,7 +119,7 @@ if __name__ == '__main__':
     logging.info('Pulling with %s processes' % pool._processes)
     start = time.time()
     # Multi-threaded version
-    infos = pool.map(pull_submission, get_submissions())
+    infos = pool.map(pull_submission, enumerate(get_submissions()))
     # Single threaded version
     # infos = [pull_submission(s) for s in get_submissions()]
     end = time.time()
