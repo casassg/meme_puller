@@ -5,3 +5,4 @@ image_data/*
 fixed_images/*
 .DS_Store
 *.zip
+.ipynb_checkpoints
