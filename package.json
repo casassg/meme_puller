@@ -1,0 +1,23 @@
+{
+  "name": "meme_puller",
+  "version": "1.0.0",
+  "description": "Meme puller from 9gag",
+  "main": "puller.js",
+  "dependencies": {
+    "9gag": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casassg/meme_puller.git"
+  },
+  "author": "Gerard Casas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/casassg/meme_puller/issues"
+  },
+  "homepage": "https://github.com/casassg/meme_puller#readme"
+}

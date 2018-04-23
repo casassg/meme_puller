@@ -1,6 +1,8 @@
 env
 .idea
 *.json
+!package.json
+node_modules/*
 image_data/*
 fixed_images/*
 .DS_Store
