@@ -2,6 +2,7 @@ env
 .idea
 *.json
 !package.json
+!results/*.json
 node_modules/*
 image_data/*
 fixed_images/*
